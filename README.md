@@ -7,3 +7,6 @@ The Online Grocery Store System, OGSS, developed to give grocery businesses a de
 Technologies used:
 
 Java, Angular 10, Spring Boot, Hibernate, Bootstrap, Angular Material, Prime Ng, Log4J
+
+Angular Branch contain Angular part of this application
+Spring Branch contain Spring part of this application
