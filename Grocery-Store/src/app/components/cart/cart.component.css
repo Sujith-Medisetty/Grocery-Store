@@ -1,0 +1,30 @@
+.card {
+    height: 80vh;
+    margin: 15px;
+    padding: 15px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+img {
+    height: 40vh;
+    background-color: green;
+    border: none;
+    color: inherit;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.btn-outline-danger {
+    border-color: white;
+}
+
+.btn-outline-danger:hover {
+    border-color: red;
+}

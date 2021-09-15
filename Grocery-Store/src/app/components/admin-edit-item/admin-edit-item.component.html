@@ -1,0 +1,67 @@
+<form #userform="ngForm" (ngSubmit)="onsubmit(userform); userform.reset()">
+
+    <div class="row">
+        <div class="form-group col-md-6 my-3">
+            <label for="#title" class="mb-1">Product Title</label>
+            <input type="text" class="form-control" id="title" #title="ngModel" [class.is-invalid]="title.invalid && title.touched" required [class.is-valid]="title.valid && title.dirty" pattern="^([a-zA-Z0-9 ]){2,100}$" name="title" [(ngModel)]="data.product.title">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Product title should be of length 2 to 100 and only space, alphabets, Digits are only accepted.
+            </div>
+        </div>
+        <div class="form-group col-md-6 my-3">
+            <label for="#brand" class="mb-1">Product Brand</label>
+            <input type="text" class="form-control" id="brand" #brand="ngModel" [class.is-invalid]="brand.invalid && brand.touched" required [class.is-valid]="brand.valid && brand.dirty" pattern="^([a-zA-Z0-9 ]){2,100}$" name="brand" [(ngModel)]="data.product.brand">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Product brand should be of length 5 to 100 and only space, alphabets, Digits are only accepted.
+            </div>
+        </div>
+        <div class="form-group col-md-6 my-3">
+            <label for="#price" class="mb-1">Product Price (Rs.)</label>
+            <input type="text" class="form-control" id="price" #price="ngModel" [class.is-invalid]="price.invalid && price.touched" required [class.is-valid]="price.valid && price.dirty" pattern="^([0-9]){1,}$" name="price" [(ngModel)]="data.product.price">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                only number is accepted and it should be minimum of length one.
+            </div>
+        </div>
+        <div class="form-group col-md-6 my-3">
+            <label for="#description" class="mb-1">Product Description</label>
+            <input type="text" class="form-control" id="description" #description="ngModel" [class.is-invalid]="description.invalid && description.touched" required [class.is-valid]="description.valid && description.dirty" name="description" [(ngModel)]="data.product.description">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Product description should be of length 5 to 100 and only space, alphabets, Digits are only accepted.
+            </div>
+        </div>
+        <div class="col-md-6 my-3">
+            <label for="#url" class="mb-1"></label>
+            <select class="form-select" name="category" [(ngModel)]="data.product.category" required #select="ngModel" [class.is-invalid]="categoryHasError && select.touched" (blur)="validateCategory(select.value)" (change)="validateCategory(select.value)">
+                <option selected value="">Select Product Category</option>
+                <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+            </select>
+            <div class="invalid-feedback">
+                please select category...!
+            </div>
+        </div>
+        <div class="col-0 col-md-6 my-3">
+            <label for="#url" class="mb-1">Product Image URL</label>
+            <input type="text" class="form-control" id="url" #url="ngModel" [class.is-invalid]="url.invalid && url.touched" required [class.is-valid]="url.valid && url.dirty" required name="url" [(ngModel)]="data.product.url">
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Paste Google image url.
+            </div>
+        </div>
+        <button [disabled]="userform.form.invalid" class="btn btn-primary col-4 mx-auto my-3">Update Product</button>
+        <button class="btn btn-primary col-4 mx-auto my-3" [mat-dialog-close]>Close</button>
+    </div>
+</form>

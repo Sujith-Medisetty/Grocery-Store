@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary px-3 mb-3" style="box-shadow: 5px 5px 25px lightblue;">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            <i class="fa fa-shipping-fast px-3"></i>
+            <strong class="">AMAZON</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 px-3 px-lg-0 mt-3 mt-lg-0">
+                <li class="nav-item" *ngIf="!userlogin && !adminlogin">
+                    <a class="nav-link active text-dark pe-3" routerLink="user-login" routerLinkActive="activeClass"><i class="fas fa-sign-in-alt px-2"></i>USER-LOGIN</a>
+                </li>
+                <li class="nav-item" *ngIf="!userlogin && !adminlogin">
+                    <a class="nav-link active text-dark pe-3" routerLink="admin-login" routerLinkActive="activeClass"><i class="fas fa-user-shield px-2"></i>ADMIN-LOGIN</a>
+                </li>
+                <li class="nav-item" *ngIf="userlogin && !adminlogin">
+                    <a class="nav-link active text-dark pe-3 me-4" routerLink="user-dashboard/products" routerLinkActive="activeClass"><i class="fas fa-shopping-basket px-2"></i>PRODUCTS</a>
+                </li>
+                <li class="nav-item" *ngIf="userlogin && !adminlogin">
+                    <a class="nav-link active text-dark px-lg-5 px-md-1" routerLink="user-dashboard/cart" routerLinkActive="activeClass">
+                        <i style="font-size: 20px;" class="fas fa-cart-plus"></i>
+                        <div style="font-size: 12px;position: relative;top:-9px;color: black;" class="badge">{{itemcount}}</div>
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="userlogin && !adminlogin">
+                    <a class="nav-link active text-dark pe-3 mx-lg-3" id="logout" style="cursor: pointer;" (click)="userLogout()"><i class="fas fa-sign-out-alt px-2"></i>LOGOUT</a>
+                </li>
+                <li class="nav-item" *ngIf="!userlogin && adminlogin">
+                    <a class="nav-link active text-dark pe-3" routerLink="admin-dashboard/add-item" routerLinkActive="activeClass"><i class="fa fa-plus px-2"></i>PRODUCT</a>
+                </li>
+                <li class="nav-item" *ngIf="!userlogin && adminlogin">
+                    <a class="nav-link active text-dark pe-3" routerLink="admin-dashboard/view-item" routerLinkActive="activeClass"><i class="fa fa-eye px-2"></i>PRODUCTS</a>
+                </li>
+                <li class="nav-item" *ngIf="!userlogin && adminlogin">
+                    <a class="nav-link active text-dark pe-3 mx-lg-3" id="logout" style="cursor: pointer;" (click)="adminLogout()"><i class="fas fa-sign-out-alt px-2"></i>LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

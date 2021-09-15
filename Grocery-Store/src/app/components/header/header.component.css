@@ -1,0 +1,10 @@
+.activeClass {
+    color: black;
+    background: white;
+    border-radius: 5px;
+}
+
+#logout:hover {
+    background-color: lightgreen;
+    border-radius: 5px;
+}
