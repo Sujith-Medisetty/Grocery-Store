@@ -1,0 +1,28 @@
+<div class="container">
+    <table class="table" style="vertical-align: middle;text-align: center;">
+        <thead>
+            <tr>
+                <th scope="col">SNO</th>
+                <th scope="col">Product</th>
+                <th scope="col">Title</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Price (Rs.)(1 kg/1 L)</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products; let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td><img [src]="product.url" alt="Loading..." style="width:100px;height:100px;"></td>
+                <td>{{product.title}}</td>
+                <td>{{product.brand}}</td>
+                <td>{{product.price}}</td>
+                <td style="width: 300px;">{{product.description}}</td>
+                <td>{{product.category}}</td>
+                <td><i class="fas fa-edit text-info p-2" (click)="editProduct(product)" id="iconClick"></i></td>
+                <td><i class="fas fa-trash-alt text-danger p-2" (click)="deleteProduct(product)" id="iconClick"></i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

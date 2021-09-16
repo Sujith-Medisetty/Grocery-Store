@@ -1,0 +1,51 @@
+<div class="container mt-5" *ngIf="cartproducts.length===0">
+    <div class="card">
+        <div class="card-title">My Cart</div>
+    </div>
+    <div class="center">
+        <img src="https://chillydraji.files.wordpress.com/2015/08/empty_cart.jpeg" alt="">
+        <h4>Your Cart is empty...!</h4>
+        <h6>Add item to it now</h6>
+        <a class="btn btn-primary" routerLink="">Shop Now</a>
+    </div>
+</div>
+
+<div class="container mt-5" *ngIf="cartproducts.length>0">
+    <div class="card-table">
+        <div class="cart-product">
+            <table class="table table-bordered table-responsive text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">SNo</th>
+                        <th scope="col">Product Image</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of cartproducts;index as i">
+                        <th scope="row">{{i+1}}</th>
+                        <td><img [src]="product.url" alt="" style="width:100px;height:100px;"></td>
+                        <td style="width:300px;">{{product.title}}</td>
+                        <td style="width:400px;" class="text-start">{{product.description}}</td>
+                        <td>Rs. {{product.price}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>Rs. {{product.price * product.quantity}}</td>
+
+                        <td>
+                            <button class="btn"><i class="fas fa-trash-alt fa-lg text-danger" (click)="deleteItem(product)" ></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div style="width:100%;;position:fixed;bottom: 0px;color: white;" class="bg-primary py-2 d-flex justify-content-around" *ngIf="totalprice>0">
+    <button class="btn btn-outline-danger btn-sm " style="color:white;" (click)="deleteAll()">Delete All</button>
+    <h4><span style="font-size: 20px;">Total Amount:&nbsp;&nbsp;</span>{{'₹ '+totalprice}}</h4>
+</div>

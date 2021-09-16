@@ -1,0 +1,14 @@
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <div class="card col-5 col-lg-2 col-md-3 col-sm-4" *ngFor="let product of productList">
+            <img [src]="product.url" alt="" style="display: block;margin:auto;" class="py-1 pb-3">
+            <h3 style="white-space: nowrap;overflow: hidden;text-overflow:ellipsis;"><strong>{{product.title}}</strong></h3>
+            <p style="white-space: nowrap;overflow: hidden;text-overflow:ellipsis;">{{product.description}}</p>
+            <p><strong>Price:&nbsp;</strong>{{'Rs. '+product.price}}</p>
+            <p style="white-space: nowrap;overflow: hidden;text-overflow:ellipsis;"><strong>Category: </strong>{{product.category}}</p>
+            <p><strong>Quantity:</strong></p>
+            <p><strong>Kgs/L:</strong></p>
+            <button class="btn btn-primary" (click)="addToCart(product)">Add to cart</button>
+        </div>
+    </div>
+</div>
