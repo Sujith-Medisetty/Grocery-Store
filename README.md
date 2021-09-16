@@ -1,6 +1,5 @@
 # Grocery-Store
 
-# There are 2 more branches.
 
 Description:
 
