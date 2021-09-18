@@ -12,7 +12,7 @@
 	<artifactId>Grocery-Store</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Grocery-Store</name>
-	<description>Building Grocery-Store App</description>
+	<description>Building Grocery-Store App</description> 
 	<properties>
 		<java.version>1.8</java.version>
 		
