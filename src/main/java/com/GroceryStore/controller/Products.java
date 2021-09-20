@@ -51,9 +51,9 @@ public class Products {
 	
 	
 	@RequestMapping("/")
-	public String home() {
+	public String home() { // home
 		
-		return "Welcome "+getUser();
+		return "Welcome "+getUser(); 
 	}
 
 	@PostMapping("/authenticate")
